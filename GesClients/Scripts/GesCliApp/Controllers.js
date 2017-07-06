@@ -1,14 +1,23 @@
 ﻿app.controller("GesClientsCtrl", function ($scope, GesClientsService) {
+    getAll();
+    function getAll() {
+        var servCall = APIService.getClientes();
+        servCall.then(function (d) {
+            $scope.subscriber = d;
+        }, function (error) {
+            console.log('Oops! Something went wrong while fetching the data.')
+        });
+    }
     //Cadastro de Clientes
     $scope.AddClients = function () {
-        alert("Teste");
         var cli = {
             NomeCli: $scope.nomeCli,
-            NascimentoCli: $scope.nascimentoCli,
+            DataNascimentoCli: $scope.nascimentoCli,
             CPFCli:$scope.cpfCli
         };
         var AddClients = GesClientsService.saveClientes(cli);
         AddClients.then(function (d) {
+            getAll();
         }, function (error) {
             console.log('Oops! Something went wrong while saving the data.')
         })

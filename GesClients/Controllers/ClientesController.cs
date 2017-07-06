@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using GesClients.Models;
+using System.Data.SqlClient;
 
 namespace GesClients.Controllers
 {
@@ -15,21 +16,28 @@ namespace GesClients.Controllers
         {
             this.context = new GesClientsDb();
         }
+        [HttpGet]
+        public IEnumerable<Clientes> GetClientes()
+        {
+            return context.Clientes.AsEnumerable();
+        }
+
         // POST: api/Subscriber
         [HttpPost]
         public void AddClients(Clientes cliente)
         {
             if (ModelState.IsValid)
             {
-               
-                cliente.IdCli = cliente.IdCli;
+
                 try
                 {
+                    context.Clientes.Add(cliente);
                     context.SaveChanges();
                 }
-                catch (ArgumentException ex)
+                catch (InvalidOperationException ex)
                 {
-                    Console.WriteLine("Exception: " +ex.Message);
+                    Console.WriteLine(ex.GetType().FullName);
+                    Console.WriteLine(ex.Message);
                 }
             }
         }

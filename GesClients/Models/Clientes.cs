@@ -7,6 +7,7 @@ using System.Web;
 
 namespace GesClients.Models
 {
+    [Table("Clientes")]
     public class Clientes
     {
         [Key]
@@ -14,7 +15,7 @@ namespace GesClients.Models
         public int IdCli { get; set; }
         public string  NomeCli { get; set; }
         public string CPFCli { get; set; }
-        public DateTime Nascimento{ get; set; }
+        public Nullable< DateTime> DataNascimentoCli{ get; set; }
         
     }
 }

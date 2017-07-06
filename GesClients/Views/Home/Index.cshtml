@@ -1,11 +1,12 @@
-﻿<div class="container">
-    <div class="col-md-6">
-        <form>
+﻿
+<div class="row">
+    <div class="col-md-12">
+        <form class="col-md-6">
             <fieldset>
                 <legend>Cadastro de Clientes</legend>
                 <div class="form-group col-md-12">
                     <label for="nomeCli" class="control-label col-md-12">Nome</label>
-                    <input type="text" class="form-control col-md-12"data-ng-model="nomeCli" />
+                    <input type="text" class="form-control col-md-12" data-ng-model="nomeCli" />
                 </div>
                 <div class="form-group col-md-12">
                     <label for="nascimentoCli" class="control-label col-md-12">Data de Nascimento</label>
@@ -15,10 +16,31 @@
                     <label for="cpfCli" class="control-label col-md-12">CPF</label>
                     <input type="datetime" class="form-control col-md-12" data-ng-model="cpfCli" />
                 </div>
-                <div class="col-md-12">
-                    <button type="button" class="btn btn-primary col-md-6" data-ng-click="AddClients();">Cadastrar</button>
+                <div class="col-md-12 form-group">
+                    <button class="col-md-6 btn btn-primary" data-ng-click="AddClients();">Cadastrar</button>
                 </div>
             </fieldset>
         </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table">
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Data de Nascimento</th>
+                <th>CPF</th>
+            </tr>
+            <tbody data-ng-repeat="cli in clientes">
+                <tr>
+                    <td>{{cli.IdCli}}</td>
+                    <td>{{cli.NomeCli}}</td>
+                    <td>{{cli.CPFCli}}</td>
+                    <td>{{cli.DataNascimentoCli}}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
