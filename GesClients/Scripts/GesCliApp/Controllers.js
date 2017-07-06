@@ -1,9 +1,9 @@
 ﻿app.controller("GesClientsCtrl", function ($scope, GesClientsService) {
     getAll();
     function getAll() {
-        var servCall = APIService.getClientes();
+        var servCall = GesClientsService.getClientes();
         servCall.then(function (d) {
-            $scope.subscriber = d;
+            $scope.clientes = d;
         }, function (error) {
             console.log('Oops! Something went wrong while fetching the data.')
         });

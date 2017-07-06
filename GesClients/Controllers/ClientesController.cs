@@ -19,7 +19,17 @@ namespace GesClients.Controllers
         [HttpGet]
         public IEnumerable<Clientes> GetClientes()
         {
-            return context.Clientes.AsEnumerable();
+            try
+            {
+                var consulta = context.Clientes.AsEnumerable();
+                return consulta;
+            }
+            catch(Exception ex)
+            {
+                System.Console.Write(ex);
+                return null;
+            }
+
         }
 
         // POST: api/Subscriber
