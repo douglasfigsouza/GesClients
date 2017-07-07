@@ -52,5 +52,46 @@ namespace GesClients.Controllers
             }
         }
 
+        // PUT: api/Subscriber/5
+        [HttpPut]
+        public void Put(Clientes cli)
+        {
+            cli.IdCli = cli.IdCli;
+            cli.NomeCli = cli.NomeCli;
+            cli.DataNascimentoCli = cli.DataNascimentoCli;
+            cli.CPFCli = cli.CPFCli;
+
+            if (ModelState.IsValid)
+            {
+                context.Entry(cli).State = System.Data.Entity.EntityState.Modified;
+                try
+                {
+                    context.SaveChanges();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+        }
+        [HttpDelete]
+        public void DeleteCliente(int id)
+        {
+            Clientes cliente = context.Clientes.Find(id);
+            if (cliente != null)
+            {
+                try
+                {
+                    context.Clientes.Remove(cliente);
+                    context.SaveChanges();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+        }
+
+
     }
 }

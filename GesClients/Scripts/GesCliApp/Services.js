@@ -12,4 +12,19 @@
             url: 'api/Clientes'
         });
     }
+    this.updateCliente = function (cli) {
+        return $http({
+            method: 'put',
+            data: cli,
+            url: 'api/Clientes'
+        });
+    }
+    this.DeleteCliente = function (id) {
+        var url = 'api/Clientes/' + id;
+        return $http({
+            method: 'delete',
+            data:id,
+            url:url
+        });
+    }
 });
