@@ -16,6 +16,7 @@ namespace GesClients.Controllers
         {
             this.context = new GesClientsDb();
         }
+        //método que retona todos os clientes
         [HttpGet]
         public IEnumerable<Clientes> GetClientes()
         {
@@ -31,8 +32,7 @@ namespace GesClients.Controllers
             }
 
         }
-
-        // POST: api/Subscriber
+        //método para adição de clientes
         [HttpPost]
         public void AddClients(Clientes cliente)
         {
@@ -51,8 +51,7 @@ namespace GesClients.Controllers
                 }
             }
         }
-
-        // PUT: api/Subscriber/5
+        // método de atualização de clientes 
         [HttpPut]
         public void Put(Clientes cli)
         {
@@ -74,6 +73,7 @@ namespace GesClients.Controllers
                 }
             }
         }
+        // método de remoçãod e clientes 
         [HttpDelete]
         public void DeleteCliente(int id)
         {

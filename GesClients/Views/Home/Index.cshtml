@@ -21,30 +21,27 @@
                 </div>
             </fieldset>
         </form>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-md-12">
-        <table class="table">
-            <tr>
-                <th>Id</th>
-                <th>Nome</th>
-                <th>Data de Nascimento</th>
-                <th>CPF</th>
-                <th>Excluir</th>
-            </tr>
-            <tbody data-ng-repeat="cli in clientes">
+        <div class="col-md-6">
+            <table class="table table-striped">
                 <tr>
-                    <td>{{cli.IdCli}}</td>
-                    <td ng-blur="updClientes(cli,$event)" ng-dblclick="makeEditable($event)">{{cli.NomeCli}}</td>
-                    <td>{{cli.CPFCli}}</td>
-                    <td>{{cli.DataNascimentoCli}}</td>
-                    <td>
-                        <input type="button" id="Delete" value="Delete" data-ng-click="DelCliente(cli.IdCli)" />
-                    </td>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>Data de Nascimento</th>
+                    <th>CPF</th>
+                    <th>Excluir</th>
                 </tr>
-            </tbody>
-        </table>
+                <tbody data-ng-repeat="cli in clientes">
+                    <tr>
+                        <td>{{cli.IdCli}}</td>
+                        <td ng-blur="updClientes(cli,$event)" ng-dblclick="makeEditable($event)">{{cli.NomeCli}}</td>
+                        <td>{{cli.CPFCli}}</td>
+                        <td>{{cli.DataNascimentoCli}}</td>
+                        <td>
+                            <input class="btn btn-danger" type="button" id="Delete" value="Delete" data-ng-click="DelCliente(cli.IdCli)" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>

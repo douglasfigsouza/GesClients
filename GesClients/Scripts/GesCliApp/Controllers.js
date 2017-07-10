@@ -5,7 +5,7 @@
         servCall.then(function (d) {
             $scope.clientes = d;
         }, function (error) {
-            console.log('Oops! Something went wrong while fetching the data.')
+            console.log('Opa! Algo deu errado enquanto buscava os dados.')
         });
     }
     //Cadastro de Clientes
@@ -19,7 +19,7 @@
         AddClients.then(function (d) {
             getAll();
         }, function (error) {
-            console.log('Oops! Something went wrong while saving the data.')
+            console.log('Opa! Algo deu errado ao salvar os dados.')
         })
     };
     $scope.makeEditable = function (obj) {
@@ -32,7 +32,7 @@
         upd.then(function (d) {
             getAll();
         }, function (error) {
-            console.log('Oops! Something went wrong while updating the data.')
+            console.log('Opss! Algo deu errado ao atualizar os dados.')
         })
     };
     $scope.DelCliente = function (id) {
@@ -40,7 +40,7 @@
         dltCli.then(function (d) {
             getAll();
         }, function (error) {
-            console.log("o cliente não pode ser cadastrado");
+            console.log("Opss! Algo deu errado ao criar os dados.");
         });
     };
 });
